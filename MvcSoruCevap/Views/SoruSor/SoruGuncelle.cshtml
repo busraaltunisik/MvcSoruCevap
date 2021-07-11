@@ -1,0 +1,27 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLSORU
+@{
+    ViewBag.Title = "SoruGuncelle";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+@using (Html.BeginForm("SoruGuncelle", "SoruSor", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>SORU BAŞLIK</label>
+        @Html.TextBoxFor(d => d.BASLIK, new { @class = "form-control" })
+        <br />
+        <label>SORU İÇERİK</label>
+        @Html.TextBoxFor(d => d.ICERIK, new { @class = "form-control" })
+        <br />
+        <label>EKLENME TARİHİ</label>
+        @Html.TextBoxFor(d => d.EKLEMETARIHI, new { @class = "form-control" })
+        <br />
+        <label>DÜZENLENME TARİHİ</label>
+        @Html.TextBoxFor(d => d.DUZENLEMETARIHI, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+}

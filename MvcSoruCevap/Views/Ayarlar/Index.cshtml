@@ -1,0 +1,74 @@
+﻿
+@using MvcSoruCevap.Models.Entity
+@model List<TBLDOKTOR>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı</th>
+        <th>Yetki</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ID</th>
+            <th>@item.KULLANICIADI</th>
+            <th>@item.YETKI</th>
+            <td>
+                <a class="btn btn-info btn-sm" href="/Ayarlar/DoktorGuncelle/@item.ID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Düzenle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Ayarlar/DoktorSil/@item.ID">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1"> Yeni Doktor Ekle </button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Doktor Ekleme Paneli </h2>
+            </div>
+            <form method="post" action="/Ayarlar/YeniDoktor/">
+                <div class="modal-body">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" name="KULLANICIADI" class="form-control" />
+                </div>
+                <div class="modal-body">
+                    <br />
+                    <label>Şifre</label>
+                    <input type="text" name="SIFRE" class="form-control" />
+                </div>
+                <div class="modal-body">
+                    <br />
+                    <label>Yetki</label>
+                    <input type="text" name="YETKI" class="form-control" />
+                    <br />
+                    <button class="btn btn-info"> Kaydet </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

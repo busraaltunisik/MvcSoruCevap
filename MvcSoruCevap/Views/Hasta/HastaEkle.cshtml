@@ -1,0 +1,53 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLUYEHASTA
+
+@{
+    ViewBag.Title = "HastaEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Hasta Id</label>
+        @Html.TextBoxFor(h => h.ID, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Adı</label>
+        @*<input type="text" class="form-control" name="HASTA"/>*@
+        @Html.TextBoxFor(h => h.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(h => h.AD, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Soyadı</label>
+        @Html.TextBoxFor(h => h.SOYAD, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Mail Adresi</label>
+        @Html.TextBoxFor(h => h.MAIL, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Kullanıcı Adı</label>
+        @Html.TextBoxFor(h => h.KULLANICIADI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Şifre</label>
+        @Html.TextBoxFor(h => h.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(h => h.SIFRE, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf</label>
+        @Html.TextBoxFor(h => h.FOTOGRAF, new { @class = "form-control" })
+        @Html.ValidationMessageFor(h => h.FOTOGRAF, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Hasta Telefon Numarası</label>
+        @Html.TextBoxFor(h => h.TELEFON, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Geçmiş Hasta Kaydı</label>
+        @Html.TextAreaFor(h => h.HASTALIK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info"> Hasta Ekle </button>
+    </div>
+</form>

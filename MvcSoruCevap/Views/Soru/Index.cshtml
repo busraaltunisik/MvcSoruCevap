@@ -1,0 +1,45 @@
+﻿@using MvcSoruCevap.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLSORU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>SORULAR</h2>
+
+<div style="margin-bottom:15px; margin-top:15px;"><input type="text" class="form-control" placeholder="aranacak soruyu giriniz.." /></div>
+
+<table class="table table-striped">
+    <tr style="background-color:#3360a8; color:white">
+        <th>SORU ID</th>
+        <th>SORU BAŞLIK</th>
+        <th>SORU İÇERİK</th>
+        <th>SORU KATEGORİ</th>
+        <th>SORUYU SORAN HASTA</th>
+        <th>EKLENME TARİHİ</th>
+        <th>DÜZENLENME TARİHİ</th>
+        <th>DURUM</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var sor in Model)
+    {
+        <tr>
+            <td>@sor.ID</td>
+            <td>@sor.BASLIK</td>
+            <td>@sor.ICERIK</td>
+            <td>@sor.KATEGORI</td>
+            <td>@sor.TBLUYEHASTA.AD&nbsp @sor.TBLUYEHASTA.SOYAD</td>
+            <td>@sor.EKLEMETARIHI</td>
+            <td>@sor.DUZENLEMETARIHI</td>
+            <td>@sor.DURUM</td>
+            <td>@Html.ActionLink("Sil", "SoruSil", new { id = sor.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor Musunuz?')" }) </td>
+            <td><a href="/Soru/SoruGetir/@sor.ID" class="btn btn-success">GÜNCELLE</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Soru/SoruEkle" class="btn btn-primary"> Yeni Soru Ekle </a>
+

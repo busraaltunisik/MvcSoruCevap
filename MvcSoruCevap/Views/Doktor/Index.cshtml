@@ -1,0 +1,35 @@
+﻿@using MvcSoruCevap.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLDOKTOR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>DOKTORLAR</h2>
+<table class="table table-striped">
+    <tr style="background-color:#3360a8; color:white">
+        <th>DOKTOR ID</th>
+        <th>DOKTOR ADI</th>
+        <th>DOKTOR SOYADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>DAHA FAZLA</th>
+    </tr>
+    @foreach (var dkt in Model)
+    {
+        <tr>
+            <td>@dkt.ID</td>
+            <td>@dkt.AD</td>
+            <td>@dkt.SOYAD</td>
+            <td><a href="/Doktor/DoktorSil/@dkt.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Doktor/DoktorGetir/@dkt.ID" class="btn btn-success">GÜNCELLE</a></td>
+            <td><a href="/Hastane/Index#portfolio/ @dkt.ID" class="btn btn-primary">Doktor Hakkında Bilgi</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Doktor/DoktorEkle" class="btn btn-primary"> Yeni Doktor Ekle </a>
+
+

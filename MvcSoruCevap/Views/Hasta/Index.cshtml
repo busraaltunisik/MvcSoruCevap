@@ -1,0 +1,41 @@
+﻿@using MvcSoruCevap.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLUYEHASTA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>HASTALAR</h2>
+<table class="table table-striped">
+    <tr style="background-color:#3360a8">
+        <th style="color:white">HASTA ID</th>
+        <th style="color:white">HASTA ADI</th>
+        <th style="color:white">HASTA SOYADI</th>
+        <th style="color:white">MAİL ADRESİ</th>
+        <th style="color:white">KULLANICI ADI</th>
+        <th style="color:white">SİFRE</th>
+        <th style="color:white">TELEFON</th>
+        <th style="color:white">GEÇMİŞ HASTA KAYDI</th>
+        <th style="color:white">SİL</th>
+        <th style="color:white">GÜNCELLE</th>
+    </tr>
+    @foreach (var hst in Model)
+    {
+        <tr>
+            <td>@hst.ID</td>
+            <td>@hst.AD</td>
+            <td>@hst.SOYAD</td>
+            <td>@hst.MAIL</td>
+            <td>@hst.KULLANICIADI</td>
+            <td>@hst.SIFRE</td>
+            <td>@hst.TELEFON</td>
+            <td>@hst.HASTALIK</td>
+            <td><a href="/Hasta/HastaSil/@hst.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Hasta/HastaGetir/@hst.ID" class="btn btn-success">GÜNCELLE</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new { sayfa }))
+<a href="/Hasta/HastaEkle" class="btn btn-primary"> Yeni Hasta Ekle </a>

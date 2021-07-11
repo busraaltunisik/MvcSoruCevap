@@ -1,0 +1,49 @@
+﻿@using MvcSoruCevap.Models.Entity
+@model List<TBLDUYURU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string renk = "";
+}
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Duyuru No</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>İçerik</th>
+    </tr>
+    @foreach (var dyr in Model)
+    {
+
+        if (dyr.KATEGORI == "Diğer")
+        {
+            renk = "bg-info text-white";
+        }
+        if (dyr.KATEGORI == "Personel")
+        {
+            renk = "bg-warning text-white";
+        }
+        if (dyr.KATEGORI == "Burs")
+        {
+            renk = "bg-success text-white";
+        }
+        if (dyr.KATEGORI == "Toplantı")
+        {
+            renk = "bg-danger text-white";
+        }
+        <tr class="@renk">
+            <td>@dyr.ID</td>
+            <td>@dyr.KATEGORI</td>
+            <td>@Convert.ToDateTime(dyr.TARIH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Duyuru/DuyuruSil/@dyr.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Duyuru/DuyuruDetay/@dyr.ID" class="btn btn-default" style="background-color:skyblue">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Duyuru/YeniDuyuru/" class="btn btn-primary">Yeni Duyuru Ekle</a>
+

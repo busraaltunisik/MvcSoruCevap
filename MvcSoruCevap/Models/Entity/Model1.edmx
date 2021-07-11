@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SORUCEVAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLCEVAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SORU" Type="int" />
+          <Property Name="CEVAP" Type="varchar(max)" />
+          <Property Name="DOKTOR" Type="int" />
+          <Property Name="EKLENMETARIHI" Type="smalldatetime" />
+          <Property Name="DUZENLEMETARIHI" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TBLDOKTOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="KULLANICIADI" Type="varchar" MaxLength="20" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+          <Property Name="FOTOGRAF" Type="varchar" MaxLength="250" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="YETKI" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TBLDUYURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORI" Type="varchar" MaxLength="50" />
+          <Property Name="ICERIK" Type="varchar(max)" />
+          <Property Name="TARIH" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBLHAREKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SORU" Type="int" />
+          <Property Name="HASTA" Type="int" />
+          <Property Name="DOKTOR" Type="int" />
+          <Property Name="CEVAPLAMATARIHI" Type="smalldatetime" />
+          <Property Name="GUNCELLEMETARIHI" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TBLILETISIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="50" />
+          <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLMESAJLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GONDEREN" Type="varchar" MaxLength="50" />
+          <Property Name="ALICI" Type="varchar" MaxLength="50" />
+          <Property Name="KONU" Type="varchar" MaxLength="50" />
+          <Property Name="ICERIK" Type="varchar(max)" />
+          <Property Name="TARIH" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TBLSORU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIK" Type="varchar" MaxLength="100" />
+          <Property Name="ICERIK" Type="varchar(max)" />
+          <Property Name="KATEGORI" Type="int" />
+          <Property Name="HASTA" Type="int" />
+          <Property Name="EKLEMETARIHI" Type="smalldatetime" />
+          <Property Name="DUZENLEMETARIHI" Type="smalldatetime" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLUYEHASTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="KULLANICIADI" Type="varchar" MaxLength="20" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+          <Property Name="FOTOGRAF" Type="varchar" MaxLength="250" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="HASTALIK" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_TBLCEVAP_TBLDOKTOR">
+          <End Role="TBLDOKTOR" Type="Self.TBLDOKTOR" Multiplicity="0..1" />
+          <End Role="TBLCEVAP" Type="Self.TBLCEVAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDOKTOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEVAP">
+              <PropertyRef Name="DOKTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCEVAP_TBLSORU">
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="0..1" />
+          <End Role="TBLCEVAP" Type="Self.TBLCEVAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSORU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEVAP">
+              <PropertyRef Name="SORU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLUYEHASTA">
+          <End Role="TBLUYEHASTA" Type="Self.TBLUYEHASTA" Multiplicity="0..1" />
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYEHASTA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="HASTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSORU_TBLKATEGORI">
+          <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSORU">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSORU_TBLUYEHASTA">
+          <End Role="TBLUYEHASTA" Type="Self.TBLUYEHASTA" Multiplicity="0..1" />
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYEHASTA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSORU">
+              <PropertyRef Name="HASTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EnAktifDoktor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnAktifHasta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnSıkSoru" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SORUCEVAPModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCEVAP" EntityType="Self.TBLCEVAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDOKTOR" EntityType="Self.TBLDOKTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDUYURU" EntityType="Self.TBLDUYURU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHAREKET" EntityType="Self.TBLHAREKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLILETISIM" EntityType="Self.TBLILETISIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMESAJLAR" EntityType="Self.TBLMESAJLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSORU" EntityType="Self.TBLSORU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLUYEHASTA" EntityType="Self.TBLUYEHASTA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLCEVAP_TBLDOKTOR" Association="Self.FK_TBLCEVAP_TBLDOKTOR">
+            <End Role="TBLDOKTOR" EntitySet="TBLDOKTOR" />
+            <End Role="TBLCEVAP" EntitySet="TBLCEVAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCEVAP_TBLSORU" Association="Self.FK_TBLCEVAP_TBLSORU">
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+            <End Role="TBLCEVAP" EntitySet="TBLCEVAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLUYEHASTA" Association="Self.FK_TBLHAREKET_TBLUYEHASTA">
+            <End Role="TBLUYEHASTA" EntitySet="TBLUYEHASTA" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSORU_TBLKATEGORI" Association="Self.FK_TBLSORU_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSORU_TBLUYEHASTA" Association="Self.FK_TBLSORU_TBLUYEHASTA">
+            <End Role="TBLUYEHASTA" EntitySet="TBLUYEHASTA" />
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SORUCEVAPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBLCEVAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SORU" Type="Int32" />
+          <Property Name="CEVAP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOKTOR" Type="Int32" />
+          <Property Name="EKLENMETARIHI" Type="DateTime" Precision="0" />
+          <Property Name="DUZENLEMETARIHI" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TBLDOKTOR" Relationship="Self.FK_TBLCEVAP_TBLDOKTOR" FromRole="TBLCEVAP" ToRole="TBLDOKTOR" />
+          <NavigationProperty Name="TBLSORU" Relationship="Self.FK_TBLCEVAP_TBLSORU" FromRole="TBLCEVAP" ToRole="TBLSORU" />
+        </EntityType>
+        <EntityType Name="TBLDOKTOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KULLANICIADI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FOTOGRAF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLCEVAP" Relationship="Self.FK_TBLCEVAP_TBLDOKTOR" FromRole="TBLDOKTOR" ToRole="TBLCEVAP" />
+          <Property Name="YETKI" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLHAREKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SORU" Type="Int32" />
+          <Property Name="HASTA" Type="Int32" />
+          <Property Name="DOKTOR" Type="Int32" />
+          <Property Name="CEVAPLAMATARIHI" Type="DateTime" Precision="0" />
+          <Property Name="GUNCELLEMETARIHI" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TBLUYEHASTA" Relationship="Self.FK_TBLHAREKET_TBLUYEHASTA" FromRole="TBLHAREKET" ToRole="TBLUYEHASTA" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLSORU" Relationship="Self.FK_TBLSORU_TBLKATEGORI" FromRole="TBLKATEGORI" ToRole="TBLSORU" />
+          <Property Name="DURUM" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBLSORU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KATEGORI" Type="Int32" />
+          <Property Name="HASTA" Type="Int32" />
+          <Property Name="EKLEMETARIHI" Type="DateTime" Precision="0" />
+          <Property Name="DUZENLEMETARIHI" Type="DateTime" Precision="0" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLCEVAP" Relationship="Self.FK_TBLCEVAP_TBLSORU" FromRole="TBLSORU" ToRole="TBLCEVAP" />
+          <NavigationProperty Name="TBLKATEGORI" Relationship="Self.FK_TBLSORU_TBLKATEGORI" FromRole="TBLSORU" ToRole="TBLKATEGORI" />
+          <NavigationProperty Name="TBLUYEHASTA" Relationship="Self.FK_TBLSORU_TBLUYEHASTA" FromRole="TBLSORU" ToRole="TBLUYEHASTA" />
+        </EntityType>
+        <EntityType Name="TBLUYEHASTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KULLANICIADI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FOTOGRAF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HASTALIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLHAREKET" Relationship="Self.FK_TBLHAREKET_TBLUYEHASTA" FromRole="TBLUYEHASTA" ToRole="TBLHAREKET" />
+          <NavigationProperty Name="TBLSORU" Relationship="Self.FK_TBLSORU_TBLUYEHASTA" FromRole="TBLUYEHASTA" ToRole="TBLSORU" />
+        </EntityType>
+        <Association Name="FK_TBLCEVAP_TBLDOKTOR">
+          <End Role="TBLDOKTOR" Type="Self.TBLDOKTOR" Multiplicity="0..1" />
+          <End Role="TBLCEVAP" Type="Self.TBLCEVAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDOKTOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEVAP">
+              <PropertyRef Name="DOKTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCEVAP_TBLSORU">
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="0..1" />
+          <End Role="TBLCEVAP" Type="Self.TBLCEVAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSORU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLCEVAP">
+              <PropertyRef Name="SORU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHAREKET_TBLUYEHASTA">
+          <End Role="TBLUYEHASTA" Type="Self.TBLUYEHASTA" Multiplicity="0..1" />
+          <End Role="TBLHAREKET" Type="Self.TBLHAREKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYEHASTA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHAREKET">
+              <PropertyRef Name="HASTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSORU_TBLKATEGORI">
+          <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSORU">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSORU_TBLUYEHASTA">
+          <End Role="TBLUYEHASTA" Type="Self.TBLUYEHASTA" Multiplicity="0..1" />
+          <End Role="TBLSORU" Type="Self.TBLSORU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYEHASTA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSORU">
+              <PropertyRef Name="HASTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SORUCEVAPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBLCEVAP" EntityType="Self.TBLCEVAP" />
+          <EntitySet Name="TBLDOKTOR" EntityType="Self.TBLDOKTOR" />
+          <EntitySet Name="TBLHAREKET" EntityType="Self.TBLHAREKET" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" />
+          <EntitySet Name="TBLSORU" EntityType="Self.TBLSORU" />
+          <EntitySet Name="TBLUYEHASTA" EntityType="Self.TBLUYEHASTA" />
+          <AssociationSet Name="FK_TBLCEVAP_TBLDOKTOR" Association="Self.FK_TBLCEVAP_TBLDOKTOR">
+            <End Role="TBLDOKTOR" EntitySet="TBLDOKTOR" />
+            <End Role="TBLCEVAP" EntitySet="TBLCEVAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCEVAP_TBLSORU" Association="Self.FK_TBLCEVAP_TBLSORU">
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+            <End Role="TBLCEVAP" EntitySet="TBLCEVAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHAREKET_TBLUYEHASTA" Association="Self.FK_TBLHAREKET_TBLUYEHASTA">
+            <End Role="TBLUYEHASTA" EntitySet="TBLUYEHASTA" />
+            <End Role="TBLHAREKET" EntitySet="TBLHAREKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSORU_TBLKATEGORI" Association="Self.FK_TBLSORU_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSORU_TBLUYEHASTA" Association="Self.FK_TBLSORU_TBLUYEHASTA">
+            <End Role="TBLUYEHASTA" EntitySet="TBLUYEHASTA" />
+            <End Role="TBLSORU" EntitySet="TBLSORU" />
+          </AssociationSet>
+          <EntitySet Name="TBLILETISIM" EntityType="SORUCEVAPModel.TBLILETISIM" />
+          <FunctionImport Name="EnAktifHasta" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnAktifDoktor" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnSıkSoru" ReturnType="Collection(String)" />
+          <EntitySet Name="TBLMESAJLAR" EntityType="SORUCEVAPModel.TBLMESAJLAR" />
+          <EntitySet Name="TBLDUYURU" EntityType="SORUCEVAPModel.TBLDUYURU" />
+        </EntityContainer>
+        <EntityType Name="TBLILETISIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MESAJ" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLMESAJLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GONDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALICI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TBLDUYURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICERIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SORUCEVAPModelStoreContainer" CdmEntityContainer="SORUCEVAPEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCEVAP">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLCEVAP">
+              <MappingFragment StoreEntitySet="TBLCEVAP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SORU" ColumnName="SORU" />
+                <ScalarProperty Name="CEVAP" ColumnName="CEVAP" />
+                <ScalarProperty Name="DOKTOR" ColumnName="DOKTOR" />
+                <ScalarProperty Name="EKLENMETARIHI" ColumnName="EKLENMETARIHI" />
+                <ScalarProperty Name="DUZENLEMETARIHI" ColumnName="DUZENLEMETARIHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLDOKTOR">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLDOKTOR">
+              <MappingFragment StoreEntitySet="TBLDOKTOR">
+                <ScalarProperty Name="YETKI" ColumnName="YETKI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="FOTOGRAF" ColumnName="FOTOGRAF" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHAREKET">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLHAREKET">
+              <MappingFragment StoreEntitySet="TBLHAREKET">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SORU" ColumnName="SORU" />
+                <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+                <ScalarProperty Name="DOKTOR" ColumnName="DOKTOR" />
+                <ScalarProperty Name="CEVAPLAMATARIHI" ColumnName="CEVAPLAMATARIHI" />
+                <ScalarProperty Name="GUNCELLEMETARIHI" ColumnName="GUNCELLEMETARIHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKATEGORI">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLKATEGORI">
+              <MappingFragment StoreEntitySet="TBLKATEGORI">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSORU">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLSORU">
+              <MappingFragment StoreEntitySet="TBLSORU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
+                <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+                <ScalarProperty Name="EKLEMETARIHI" ColumnName="EKLEMETARIHI" />
+                <ScalarProperty Name="DUZENLEMETARIHI" ColumnName="DUZENLEMETARIHI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLUYEHASTA">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLUYEHASTA">
+              <MappingFragment StoreEntitySet="TBLUYEHASTA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="FOTOGRAF" ColumnName="FOTOGRAF" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="HASTALIK" ColumnName="HASTALIK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLILETISIM">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLILETISIM">
+              <MappingFragment StoreEntitySet="TBLILETISIM">
+                <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnAktifHasta" FunctionName="SORUCEVAPModel.Store.EnAktifHasta" />
+          <FunctionImportMapping FunctionImportName="EnAktifDoktor" FunctionName="SORUCEVAPModel.Store.EnAktifDoktor" />
+          <FunctionImportMapping FunctionImportName="EnSıkSoru" FunctionName="SORUCEVAPModel.Store.EnSıkSoru" />
+          <EntitySetMapping Name="TBLMESAJLAR">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLMESAJLAR">
+              <MappingFragment StoreEntitySet="TBLMESAJLAR">
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+                <ScalarProperty Name="KONU" ColumnName="KONU" />
+                <ScalarProperty Name="ALICI" ColumnName="ALICI" />
+                <ScalarProperty Name="GONDEREN" ColumnName="GONDEREN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLDUYURU">
+            <EntityTypeMapping TypeName="SORUCEVAPModel.TBLDUYURU">
+              <MappingFragment StoreEntitySet="TBLDUYURU">
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

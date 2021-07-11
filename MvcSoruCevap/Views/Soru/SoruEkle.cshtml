@@ -1,0 +1,40 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLSORU
+@{
+    ViewBag.Title = "SoruEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Soru Başlığı</label>
+        @Html.TextBoxFor(s => s.BASLIK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru İçeriği</label>
+        @Html.TextAreaFor(s => s.ICERIK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru Kategorisi</label>
+        @Html.TextBoxFor(s => s.KATEGORI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soruyu Soran Hasta</label>
+        @Html.TextBoxFor(s => s.HASTA, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru Eklenme Tarihi</label>
+        @Html.TextBoxFor(s => s.EKLEMETARIHI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru Düzenleme Tarihi</label>
+        @Html.TextBoxFor(s => s.DUZENLEMETARIHI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru Durumu</label>
+        @Html.TextBoxFor(s => s.DURUM, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1"> Soru Ekle </button>
+    </div>
+</form>

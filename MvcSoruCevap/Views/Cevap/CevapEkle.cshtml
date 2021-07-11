@@ -1,0 +1,38 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLCEVAP
+@{
+    ViewBag.Title = "CevapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Cevap Id</label>
+        @Html.TextBoxFor(c => c.ID, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soru</label>
+        @Html.DropDownListFor(c => c.TBLSORU.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Cevap</label>
+        @Html.TextAreaFor(c => c.CEVAP, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soruyu Cevaplayan Doktor</label>
+        @Html.DropDownListFor(c => c.TBLDOKTOR.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Cevap Eklenme Tarihi</label>
+        @Html.TextBoxFor(c => c.EKLENMETARIHI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Cevap Düzenleme Tarihi</label>
+        @Html.TextBoxFor(c => c.DUZENLEMETARIHI, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info"> Cevap Ekle </button>
+    </div>
+</form>
+
+

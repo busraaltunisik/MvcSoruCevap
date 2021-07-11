@@ -1,0 +1,40 @@
+﻿@using MvcSoruCevap.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLCEVAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>CEVAPLAR</h2>
+<div style="margin-bottom:15px; margin-top:15px;"><input type="text" class="form-control" placeholder="aranacak cevabı giriniz.." /></div>
+<table class="table table-striped">
+    <tr style="background-color:#3360a8; color:white">
+        <th>CEVAP ID</th>
+        <th>SORU</th>
+        <th>CEVAP</th>
+        <th>DOKTOR</th>
+        <th>EKLENME TARİHİ</th>
+        <th>DÜZENLENME TARİHİ</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var cvp in Model)
+    {
+        <tr>
+            <td>@cvp.ID</td>
+            <td>@cvp.TBLSORU.ICERIK</td>
+            <td>@cvp.CEVAP</td>
+            <td>@cvp.TBLDOKTOR.AD&nbsp @cvp.TBLDOKTOR.SOYAD</td>
+            <td>@cvp.EKLENMETARIHI</td>
+            <td>@cvp.DUZENLEMETARIHI</td>
+            <td><a href="/Cevap/CevapSil/@cvp.ID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Cevap/CevapGetir/@cvp.ID" class="btn btn-success">GÜNCELLE</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Cevap/CevapEkle" class="btn btn-primary"> Yeni Cevap Ekle </a>
+
+

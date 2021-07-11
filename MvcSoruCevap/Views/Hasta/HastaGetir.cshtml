@@ -1,0 +1,51 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLUYEHASTA
+@{
+    ViewBag.Title = "HastaGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("HastaGuncelle", "Hasta", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <div style="margin-top:15px">
+            <label>Hasta Id</label>
+            @Html.TextBoxFor(h => h.ID, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Adı</label>
+            @Html.TextBoxFor(h => h.AD, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Soyadı</label>
+            @Html.TextBoxFor(h => h.SOYAD, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Mail Adresi</label>
+            @Html.TextBoxFor(h => h.MAIL, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Kullanıcı Adı</label>
+            @Html.TextBoxFor(h => h.KULLANICIADI, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Şifre</label>
+            @Html.TextBoxFor(h => h.SIFRE, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Fotoğraf</label>
+            @Html.TextBoxFor(h => h.FOTOGRAF, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Hasta Telefon Numarası</label>
+            @Html.TextBoxFor(h => h.TELEFON, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Geçmiş Hasta Kaydı</label>
+            @Html.TextAreaFor(h => h.HASTALIK, new { @class = "form-control" })
+        </div>
+    </div>
+        <div>
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+    }

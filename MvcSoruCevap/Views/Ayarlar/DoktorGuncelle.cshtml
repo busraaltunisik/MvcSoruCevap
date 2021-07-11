@@ -1,0 +1,27 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLDOKTOR
+@{
+    ViewBag.Title = "DoktorGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("DoktorGuncelle", "Ayarlar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>DOKTOR ID</label>
+        @Html.TextBoxFor(d => d.ID, new { @class = "form-control" })
+        <br />
+        <label>KULLANICI ADI</label>
+        @Html.TextBoxFor(d => d.KULLANICIADI, new { @class = "form-control" })
+        <br />
+        <label>ŞİFRE</label>
+        @Html.TextBoxFor(d => d.SIFRE, new { @class = "form-control" })
+        <br />
+        <label>YETKİ</label>
+        @Html.TextBoxFor(d => d.YETKI, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+}

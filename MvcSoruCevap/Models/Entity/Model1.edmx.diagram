@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b98e54d6344b4233a47fe07f5c26405a" Name="Diagram1">
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLCEVAP" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLDOKTOR" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLHAREKET" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLKATEGORI" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLSORU" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLUYEHASTA" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="SORUCEVAPModel.FK_TBLCEVAP_TBLDOKTOR" ManuallyRouted="false" />
+        <AssociationConnector Association="SORUCEVAPModel.FK_TBLCEVAP_TBLSORU" ManuallyRouted="false" />
+        <AssociationConnector Association="SORUCEVAPModel.FK_TBLHAREKET_TBLUYEHASTA" ManuallyRouted="false" />
+        <AssociationConnector Association="SORUCEVAPModel.FK_TBLSORU_TBLKATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="SORUCEVAPModel.FK_TBLSORU_TBLUYEHASTA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLILETISIM" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLMESAJLAR" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SORUCEVAPModel.TBLDUYURU" Width="1.5" PointX="11" PointY="5" />
+      </Diagram>
+      <Diagram DiagramId="abfc2c9d5f79497f96ffa27e92e5d332" Name="Diagram2" >
+        <EntityTypeShape EntityType="SORUCEVAPModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

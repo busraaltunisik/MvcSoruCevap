@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 10px 15px 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 300px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="/Hastane/Index/"><i class="glyphicon glyphicon-header"></i>&nbsp; Medipol Hastanesi </a>
+        <a href="/Istatistik/Index/"><i class="glyphicon glyphicon-home"></i>&nbsp; Ana Sayfa </a>
+        <a href="/Kategori/Index/"><i class="glyphicon glyphicon-list"></i>&nbsp; Kategoriler </a>
+        <a href="/Soru/Index/"><i class="glyphicon glyphicon-question-sign"></i>&nbsp; Sorular </a>
+        <a href="/Cevap/Index/"><i class="glyphicon glyphicon-pencil"></i>&nbsp; Cevaplar </a>
+        <a href="/Hasta/Index/"><i class="glyphicon glyphicon-user"></i>&nbsp; Hastalar </a>
+        <a href="/Doktor/Index/"><i class="glyphicon glyphicon-globe"></i>&nbsp; Doktorlar </a>
+        <a href="/Istatistik/Index/"><i class="glyphicon glyphicon-signal"></i>&nbsp; İstatistikler </a>
+        <a href="/Istatistik/Hava/"><i class="glyphicon glyphicon-cloud"></i>&nbsp; Hava Raporu </a>
+        <a href="/Istatistik/HavaKart/"><i class="glyphicon glyphicon-plus"></i>&nbsp; Hava Kartları </a>
+        <a href="/Istatistik/Galeri/"><i class="glyphicon glyphicon-picture"></i>&nbsp; Galeri </a>
+        <a href="/Istatistik/LinqKart/"><i class="glyphicon glyphicon-bookmark"></i>&nbsp; Linq Kartlar </a>
+        <a href="/Duyuru/Index/"><i class="glyphicon glyphicon-bullhorn"></i>&nbsp; Duyurular </a>
+        <a href="/Grafik/Index/"><i class="glyphicon glyphicon-signal"></i>&nbsp; Grafikler </a>
+        <a href="/Ayarlar/Index2/"><i class="glyphicon glyphicon-wrench"></i>&nbsp; Ayarlar </a>
+        <a href="/Panelim/LogOut/"><i class="glyphicon glyphicon-remove-sign"></i>&nbsp; Çıkış </a>
+
+
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html> 

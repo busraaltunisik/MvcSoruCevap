@@ -1,0 +1,793 @@
+﻿@using MvcSoruCevap.Models.Entity;
+@model List<TBLDOKTOR>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medipol Hastanesi-Hasta Takip Sistemi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/web/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom fonts for this template -->
+    <link href="~/web/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="~/web/css/agency.min.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Medipol Hastanesi</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">Kurumsal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Doktorlarımız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#team">Sorular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/Login/GirisYap">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Medipol Hastanesi</div>
+                <div class="intro-heading text-center">Hoş Geldiniz!</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Daha Fazla</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Kurumsal</h2>
+                    <h3 class="section-subheading text-muted">Biz Kimiz?</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Amacımız</h4>
+                    <p class="text-muted">
+                        Koruyucu sağlık hizmetlerine önem vererek, halkımızı sağlıklı yaşam konusunda bilinçlendirmek.
+                        İş ahlakı, dürüstlük ve şefkat ile tedavi imkanları yaratmaktır.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-clock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Misyonumuz</h4>
+                    <p class="text-muted">
+                        Güler yüzlü ilgili ve bilgili elemanlarla
+                        temiz ortamda uygun fiyatla doğru tanı ve tedavide etik yaklaşım.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-medkit fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Vizyonumuz</h4>
+                    <p class="text-muted">
+                        Ülkemizde ve dünyada sağlık ve medikal alandaki gelişmeleri takip ederek bünyemize katmak
+                        dünya standartlarında halkımıza çağdaş sağlık hizmeti sunmak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Hakkımızda</h2>
+                    <h3 class="section-subheading text-muted">Medipol Hastanesi</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="rounded-circle img-fluid" src="~/web/img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1987</h4>
+                                    <h4 class="subheading">Kuruluş</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">İstanbul Medipol Hastanesi, 1987 yılından beri kendini sağlığa adayan, Türkiye çapında hizmet ve birikimleriyle başarısını ispatlayan altın bir zincirin son halkası olarak kurulmuştur.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="rounded-circle img-fluid" src="~/web/img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1996</h4>
+                                    <h4 class="subheading">Gelişim</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Türkiye ve İstanbul’un birçok merkezinde 1987 yılından beri sunulan sağlık hizmeti İstanbul Medipol Hastanesi’nin 1996 yılında devreye girmesiyle birlikte daha geniş kitlelere ulaşmıştır.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="rounded-circle img-fluid" src="~/web/img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4></h4>
+                                    <h4 class="subheading">Neredeyiz?</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Hastanemiz, Ankara-Harem asfaltı üzerinde Kadıköy Koşuyolu’nda, E-5 karayolu ve Koşuyolu Köprüsünün hemen yanındadır. Ulaşımı kolay olan hastanenin dört tarafı yola nazırdır ve konumu ile stratejik öneme sahip bir noktada bulunmaktadır.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="rounded-circle img-fluid" src="~/web/img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4></h4>
+                                    <h4 class="subheading">365 gün 24 saat Acil Servisimiz</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Son yeniliklerden sonra 2 Cerrahi Müdahale, 2 Acil Müdahale, Pansuman, Alçı, Enjeksiyon ve 11 yataklı Müşahade bölümleri ile giderek büyüyen Acil Servisimizde merkezi oksijen ve azot protoksit tesisatları bulunmaktadır. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>
+                                    Hikayemizin
+                                    <br>Bir Parçası
+                                    <br>Ol!
+                                </h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid -->
+    <section class="bg-light" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Doktorlarımız</h2>
+                    <h3 class="section-subheading text-muted">
+                        “Beni Türk hekimlerine emanet ediniz.”
+                        M. Kemal Atatürk
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/01-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dr.Selin Koç</h4>
+                        <p class="text-muted">Genel Cerrahi</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/02-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dr.Ali Beyaz</h4>
+                        <p class="text-muted">Kardiyoloji</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/03-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dr.Ayça Çiçek</h4>
+                        <p class="text-muted">Nöroşirürji(Beyin ve Sinir Cerrahisi)</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/04-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Prof.Dr.Beyza Sarı</h4>
+                        <p class="text-muted">Ortopedi ve Travmatoloji</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/05-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dr. Ahmet Yılmaz</h4>
+                        <p class="text-muted">Nöroloji</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/web/img/portfolio/06-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dr.Fatma Yaz</h4>
+                        <p class="text-muted">Kulak Burun Boğaz, Baş ve Boyun Cerrahisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Team -->
+    <section class="bg-light" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Sık Sorulan Sorular</h2>
+                    <h3 class="section-subheading text-muted">Doktorlarımızın cevaplarını görmek için soru cevap sayfamızı ziyaret edin</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="~/web/img/team/1.jpg" alt="">
+                        <h4>Dr.Ayça Çiçek</h4>
+                        <p class="text-muted">Migren baş ağrısı nedir? Ağrı kesici ilaçlar (analjezikler) ağrıya yol açar mı?</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="~/web/img/team/2.jpg" alt="">
+                        <h4>Prof.Dr.Beyza Sarı</h4>
+                        <p class="text-muted">Bel ağrısında tedavi yaklaşımı nasıl olmalıdır?</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="~/web/img/team/3.jpg" alt="">
+                        <h4>Dr.Fatma Yaz</h4>
+                        <p class="text-muted">Sürekli Boğaz Sorunu Yaşıyorum. Ne Yapmalıyım?</p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="large text-muted">Daha fazla cevaba ulaşmak ve yeni sorular sorabilmek için lütfen soru cevap sayfasına bir göz atın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img class="img-fluid d-block mx-auto" src="~/web/img/logos/envato.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img class="img-fluid d-block mx-auto" src="~/web/img/logos/designmodo.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img class="img-fluid d-block mx-auto" src="~/web/img/logos/themeforest.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img class="img-fluid d-block mx-auto" src="~/web/img/logos/creative-market.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-center">Bize Ulaşın</h2>
+                <h3 class="section-subheading text-muted">Aşağıdaki formu doldurarak bize ulaşabilirsiniz.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                @using (Html.BeginForm("Index", "Hastane", FormMethod.Post))
+                {
+                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Ad *" name="AD" required="required" data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" placeholder="Email *" name="MAIL" required="required" data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="phone" type="tel" placeholder="Telefon *"  name="TELEFON" required="required" data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" placeholder="Mesajınız *" name="MESAJ" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Gönder</button>
+                        </div>
+                    </div>                   
+                </form>
+                }
+                </div>
+        </div>
+    </div>
+    
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2021</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Gizlilik Politikası</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Kullanım Koşulları</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Dr.Selin Koç</h2>
+                                <p class="item-intro text-muted">Genel Cerrahi</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/01-full.jpg" alt="">
+                                <p class="text-uppercase">İlgi Alanları</p>
+                                <p>
+                                    -Anorektal Bölge Hastalıkları
+                                    Hemoroid (Basur),
+                                    -Anal Fissür (Makat Çatlağı),
+                                    -Anal Fistül (Makat Tüneli),
+                                    -Pilonidal Sinüs (Kıl Dönmesi)
+                                    -Meme Hastalıkları ve Cerrahisi
+                                    -Endoskopi(Gastroskopi & Kolonoskopi)
+                                    -Obezite Cerrahisi
+                                    -Endoskopik Mide Balon Uygulaması ,
+                                    -Endoskopik Mide Botox Uygulaması ,
+                                    -Tiroid Cerrahisi
+                                    -Laparoskopik (kapalı) Reflü Cerrahisi
+                                    -Laparoskopik (kapalı) Safra Kesesi Cerrahisi
+                                    -Fıtık Cerrahisi
+                                    -Endometriozis Cerrahisi
+                                    -Mide ve Bağırsak Hastalıkları Cerrahisi
+                                    -Karaciğer ve Dalak Cerrahisi
+                                </p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1973</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Akdeniz Üniversitesi Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Dr.Ali Beyaz</h2>
+                                <p class="item-intro text-muted">Kardiyoloji</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/02-full.jpg" alt="">
+                                <p>
+                                    3 Nisan 1976 da Adıyaman Besni'de doğdum
+                                    İlköğrenimimi Atatürk ilkokulunda, Lise eğitmini K.Maraş İmam Hatip lisesinde tamamladım.
+                                    1993-1999 yılları arasında İstanbul Üniversitesi Cerrahpaşa Tıp Fakültesinde tıp eğitimimi tamamladım.
+                                    2000-2005 yılları arasında Akdeniz Üniversitesi Tıp fakültesinde Kardiyoloji ihtisasımı yaptım.
+                                    2005-2006:Özel Aspendos Hastanesi, Belek-ANTALYA
+                                    2006-2008:Özel Vivo Tıp Merkezi, Büyükçekmece-İSTANBUL
+                                    2008-2009:Medicana İnternetional Hospital, Beylikdüzü-İSTANBUL
+                                    2009 yılından beri İstanbul Medipol Hastanesi'nde görev yapmaktayım.
+                                    2013'te Doçent unvanı aldım.
+                                    Görev yaptığım süre içinde bölgede yapılan
+                                    TAVİ operasyonu (kasıktan aort kapağı takılması),
+                                    Karotis stent işlemi (Şah damarı darlığının açılması)
+                                    Sol ana koroner bifürkasyon girişimi
+                                    Koroner fistül kapatılması,
+                                    İliofemoral arter darlığının açılması (BACAKLARI BESLEYEN DAMARLAR)
+                                    Kronik total oklüzyon (uzun süredir tıkanmış kalp damarlarının açılması) gibi işlemleri gerçekleştirdim.
+                                </p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1976</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Akdeniz Üniversitesi Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Dr.Ayça Çiçek</h2>
+                                <p class="item-intro text-muted">Nöroşirürji(Beyin ve Sinir Cerrahisi)</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/03-full.jpg" alt="">
+                                <p>Medipol Hastanesi Beyin ve Sinir Cerrahisi Kliniğinde uzmanlık eğitimimi tamamladıktan sonra uzmanlık ve Doçentlik süresince aynı hastanede hizmet vermeye devam ettim. Özellikle beyin tümörleri ve hipofiz adenomları'nın burun yoluyla kapalı ameliyatları ( endoskopik transsfenoidal cerrahi) için Pittsburgh Üniversitesi (USA) ve Napoli Üniversitesi (İtalya)'nde bulundum.Yıllardır, önce kamuda son 3 yıldır da özel sektörde çok yüksek olan cerrahi tecrübemle hipofiz adenomları, beyin tümörleri, bel fıtığı, boyun fıtığı, bel kayması, omurilik daralması, hidrosefali, sinir sıkışmaları, beyin damar hastalıkları gibi tüm beyin ve sinir cerrahisini ilgilendiren hastalıkların tedavisinde hastalarıma hizmet vermekteyim.</p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1988</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Çukurova Üniversitesi Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                     Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Prof. Dr. Beyza Sarı</h2>
+                                <p class="item-intro text-muted">Ortopedi ve Travmatoloji</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/04-full.jpg" alt="">
+                                <p>
+                                    Fakülte eğitimini 1982-1988 yıllarında Hacettepe Üniversitesi Tıp Fakültesi’nde tamamladı.
+
+                                    Kıta hizmeti için 1989- 1991 yılları arasında Malatya’da Sahra Hastanesi Başhekimi olarak görev yaptı. GATA Ortopedi ve Travmatoloji Anabilim dalında, 1991-1995 yılları arasında Ortopedi ve Travmatoloji uzmanı oldu. Elazığ Asker Hastanesi’nde 1995-1998 yılları arasında çalıştı.
+
+                                    GATA Ortopedi ve Travmatoloji Anabilim dalında, 1998 tarihinde Yardımcı Doçent oldu. Amerika Hospital For Special Surgery, Duke Üniversitesi ve Wake Forest Üniversitesi Ortopedi ve Travmatoloji Klinikleri ile El ve Üst Ekstremite Cerrahisi kliniklerinde 2000-2001 yılları arasında çalıştı.
+
+                                    2004 tarihinde Ortopedi ve Travmatoloji Doçenti oldu. Doçentlik sonrası Medipol Hastanesi’nde çalıştı.
+
+                                    2009 tarihinde Profesör oldu. Halen aynı hastanede çalışmaktadır.
+                                </p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1960</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Hacettepe Üniversitesi Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Dr. Ahmet Yılmaz</h2>
+                                <p class="item-intro text-muted">Nöroloji</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/05-full.jpg" alt="">
+                                <p> 1992 yılında Ankara Tıp Fakültesi'nden mezun oldu. Ankara Numune Hastanesinde Nöroloji dalında uzmanlık aldı. Amerika, Chicago, Colombus Cabrini Hospital ve Diamond Headache Clinic'te doktor olarak çalıştı. 2006 yılında Doçent ünvanını , 2011 yılında Algoloji ve Klinik Nörofizyoloji uzman ünvanını ve 2015 yılında Profesör Doktor unvanını kazanan Ahmet Yılmaz Medipol Hastanesi'nde hastalarına hizmet vermektedir.</p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1969</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Ankara Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Dr.Fatma Yaz</h2>
+                                <p class="item-intro text-muted">Kulak Burun Boğaz, Baş ve Boyun Cerrahisi</p>
+                                <img class="img-fluid d-block mx-auto" src="~/web/img/portfolio/06-full.jpg" alt="">
+                                <p>Dr. Fatma Yaz, Erciyes Üniversitesi Tıp Fakültesi'nden mezun olmuştur. İzmir Atatürk Eğitim Araştırma Hastanesi Katip Çelebi Üniversitesi'nde Kulak Burun Boğaz uzmanlığını tamamlayan Eda Çabuk Horoz, Medipol Hastanesi'nde hastalarına hizmet vermektedir.</p>
+                                <ul class="list-inline">
+                                    <li>Doğum Yılı: 1990</li>
+                                    <li>Bilinen Diller: İngilizce</li>
+                                    <li>Eğitim: Erciyes Üniversitesi Tıp Fakültesi</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/web/vendor/jquery/jquery.min.js"></script>
+    <script src="~/web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/web/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="~/web/js/jqBootstrapValidation.js"></script>
+    <script src="~/web/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/web/js/agency.min.js"></script>
+
+</body>
+
+</html>
+

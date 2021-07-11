@@ -1,0 +1,40 @@
+﻿@model MvcSoruCevap.Models.Entity.TBLSORU
+@{
+    ViewBag.Title = "SoruGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("SoruGuncelle", "Soru", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>SORU ID</label>
+        @Html.TextBoxFor(s => s.ID, new { @class = "form-control" })
+        <br />
+        <label>SORU BAŞLIK</label>
+        @Html.TextBoxFor(s => s.BASLIK, new { @class = "form-control" })
+        <br />
+        <label>SORU İÇERİK</label>
+        @Html.TextAreaFor(s => s.ICERIK, new { @class = "form-control" })
+        <br />
+        <label>SORU KATEGORİ</label>
+        @Html.TextBoxFor(s => s.KATEGORI, new { @class = "form-control" })
+        <br />
+        <label>SORUYU SORAN HASTA</label>
+        @Html.TextBoxFor(s => s.HASTA, new { @class = "form-control" })
+        <br />
+        <label>SORU EKLENME TARİHİ</label>
+        @Html.TextBoxFor(s => s.EKLEMETARIHI, new { @class = "form-control" })
+        <br />
+        <label>SORU DÜZENLENME TARİHİ</label>
+        @Html.TextBoxFor(s => s.DUZENLEMETARIHI, new { @class = "form-control" })
+        <br />
+        <label>DURUM</label>
+        @Html.TextBoxFor(s => s.DURUM, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+
+
